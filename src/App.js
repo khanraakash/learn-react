@@ -12,8 +12,17 @@ export default class App extends Component {
             {id: 4, value: 0},
         ]
     };
+
+    constructor() {
+        super();
+        console.log("App-constructor");
+    };
+
+    componentDidMount() {
+        console.log("App Mounted");
+    }
+
     handelIncrement = (counter) => {
-        // console.log(counter);
         const counters = [...this.state.counters];
         const index = counters.indexOf(counter);
         counters[index] = {...counter};
@@ -33,9 +42,10 @@ export default class App extends Component {
     };
 
     render() {
+        console.log("App-rendered");
         return (
-            <div>
-                <NavBar totalCounters={this.state.counters.filter(c => c.value >0).length}/>
+            <React.Fragment>
+                <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
                 <main className="container">
                     <Counters
                         counters={this.state.counters}
@@ -44,7 +54,7 @@ export default class App extends Component {
                         onDelete={this.handelDelete}
                     />
                 </main>
-            </div>
+            </React.Fragment>
         );
     }
 }
