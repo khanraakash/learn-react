@@ -12,6 +12,7 @@ componentWillMount() {
         console.log("Counter-Unmount");
 }
 
+
     /*   state = {
            value: this.props.counter.value,
            //tags: ['tag1', 'tag2', 'tag3']
