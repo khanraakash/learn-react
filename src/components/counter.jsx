@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 
 class Counter extends Component {
+    componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps",prevProps);
+    console.log("prevState",prevState);
+    if(prevProps.counter.value!==this.props.counter.value){
+        //Azax call and get new data
+    }
+    }
+componentWillMount() {
+        console.log("Counter-Unmount");
+}
+
     /*   state = {
            value: this.props.counter.value,
            //tags: ['tag1', 'tag2', 'tag3']
