@@ -21,6 +21,13 @@ export default class App extends Component {
     componentDidMount() {
         console.log("App Mounted");
     }
+    handelDecrement=(counter)=>{
+      const counters=[...this.state.counters];
+      const index=counters.indexOf(counter);
+      counters[index]={...counter};
+      counters[index].value--;
+      this.setState({counters});
+    };
 
     handelIncrement = (counter) => {
         const counters = [...this.state.counters];
@@ -51,6 +58,7 @@ export default class App extends Component {
                         counters={this.state.counters}
                         onReset={this.handelReset}
                         onIncrement={this.handelIncrement}
+                        onDecrement={this.handelDecrement}
                         onDelete={this.handelDelete}
                     />
                 </main>
